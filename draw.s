@@ -5,14 +5,11 @@
 
 .data
 background_color:
-    #       a b g r
-    .long 0xFFa9a900  # color
-floppy_circle:
-    .long 50 # centerX
-    .long 300 # centerY
-    .float 20.0 # radius
-    #       a b g r
-    .long 0xff00bdff  # color
+  .long 0xFFa9a900
+#         a b g r
+floppy_circle_color:
+  .long 0xff00bdff
+#         a b g r
 
 .text
 
@@ -25,7 +22,7 @@ fram:
     mov edi , DWORD PTR [rip+floppy_circle]
     mov esi , DWORD PTR [rip+floppy_circle+4]
     movss xmm0 , DWORD PTR [rip+floppy_circle+8]
-    mov edx , DWORD PTR [rip+floppy_circle+12]   
+    mov edx , DWORD PTR [rip+floppy_circle_color]   
     call DrawCircle@PLT
     pop rbx
     ret
